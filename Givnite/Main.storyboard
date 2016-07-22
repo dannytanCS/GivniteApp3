@@ -810,11 +810,12 @@
                         <outlet property="secondView" destination="vX9-Cz-7Fl" id="wHi-VP-00N"/>
                         <segue destination="jcF-Ad-o52" kind="modal" identifier="showImage" id="5UY-9r-GII"/>
                         <segue destination="LEm-Wi-zgq" kind="custom" identifier="toChatsTableView" customClass="RightToLeft" customModule="Givnite" customModuleProvider="target" id="yDE-RF-xni"/>
+                        <segue destination="sEY-U2-bM3" kind="custom" identifier="toMarketplace" customClass="LeftToRight" customModule="Givnite" customModuleProvider="target" id="4FE-Dr-Dr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0e-Ez-k10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676.5" y="1169.5"/>
+            <point key="canvasLocation" x="2043.5" y="1131.5"/>
         </scene>
         <!--Camera-->
         <scene sceneID="pFe-e8-m0u">
@@ -1044,6 +1045,7 @@
                         <outlet property="searchBarText" destination="9Xl-1B-9dB" id="F4F-hB-Tmm"/>
                         <segue destination="Tnf-I5-fWN" kind="modal" identifier="marketEnlarge" id="YfD-1C-9gm"/>
                         <segue destination="WKj-cM-742" kind="modal" identifier="showProfile" animates="NO" id="VtU-44-gMG"/>
+                        <segue destination="WKj-cM-742" kind="custom" identifier="backToProfile" customClass="LeftToRightUnwind" customModule="Givnite" customModuleProvider="target" id="4fR-zQ-iKg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z97-nz-WR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1673,8 +1675,9 @@
         <image name="Trash" width="81" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4fR-zQ-iKg"/>
+        <segue reference="qG4-99-uBB"/>
         <segue reference="Ldv-4t-Rae"/>
-        <segue reference="4Fk-YX-ieg"/>
         <segue reference="Mgg-ae-R6I"/>
     </inferredMetricsTieBreakers>
 </document>

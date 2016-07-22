@@ -124,9 +124,9 @@ class ProfileViewController: UIViewController, UITextViewDelegate,UICollectionVi
         secondView.addGestureRecognizer(tap)
         
         
-        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(swipeRight)
+        let swipeRightGestureRecognizer : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showMarketplace")
+        swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRightGestureRecognizer)
         
         //CHAT ADDITION
         //CHAT ADDITION
@@ -157,6 +157,10 @@ class ProfileViewController: UIViewController, UITextViewDelegate,UICollectionVi
         self.performSegueWithIdentifier("toChatsTableView", sender: self)
     }
 
+    
+    func showMarketplace(){
+        self.performSegueWithIdentifier("toMarketplace", sender: self)
+    }
     
     
     func dismissKeyboard() {
@@ -372,32 +376,8 @@ class ProfileViewController: UIViewController, UITextViewDelegate,UICollectionVi
     }
     
     
-    //swipe to the right for marketplace
+
     
-    
-    func swiped(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-                
-            case UISwipeGestureRecognizerDirection.Right :
-                print("User swiped right")
-                
-                let marketViewController: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("marketplace")
-                let transition = CATransition()
-                transition.duration = 0.3
-                transition.type = kCATransitionPush
-                transition.subtype = kCATransitionFromLeft
-                view.window!.layer.addAnimation(transition, forKey: kCATransition)
-                self.presentViewController(marketViewController, animated: false, completion: nil)
-                
-            default:
-                break //stops the code/codes nothing.
-            
-            }
-        }
-    }
     
     func schoolInfo() {
         dataRef.child("user").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot)

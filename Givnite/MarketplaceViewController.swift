@@ -35,25 +35,38 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(firstTimeUse)
+        print(imageArray)
         if self.firstTimeUse == true {
             self.imageNameArray.removeAll()
+            self.imageArray.removeAll()
             
         }
         self.userArray.removeAll()
-        self.imageArray.removeAll()
         self.bookNameArray.removeAll()
         self.bookPriceArray.removeAll()
         self.descriptionArray.removeAll()
         
         loadImages()
         
-        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:") // put : at the end of method name
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        self.view.addGestureRecognizer(swipeLeft)
+        let swipeLeftGestureRecognizer:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "unwindToProfile")
+        swipeLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeftGestureRecognizer)
         
         searchBarText.delegate = self
         
     }
+    
+    func unwindToProfile(){
+        print(123123)
+        self.performSegueWithIdentifier("backToProfile", sender: self)
+
+    }
+    
+    
+    
+    
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchText.characters.count == 0) {
@@ -82,7 +95,10 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
                 self.imageNameArray.removeAll()
              
                 for imageName in topSearches {
-                    self.imageNameArray.append(imageName as! String)
+                    if let name = imageName as? String {
+                        self.imageNameArray.append(name)
+                        
+                    }
                 }
             }
 
@@ -92,40 +108,8 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
-    func swiped(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-        
-                
-            case UISwipeGestureRecognizerDirection.Left:
-               
-                
-                
-            let profileViewController: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("profile")
-            let transition = CATransition()
-            transition.duration = 0.3
-            transition.type = kCATransitionPush
-            transition.subtype = kCATransitionFromRight
-            view.window!.layer.addAnimation(transition, forKey: kCATransition)
-            self.presentViewController(profileViewController, animated: false, completion: nil)
-                
-                
-            default:
-                break //stops the code/codes nothing.
-                
-                
-            }
-            
-        }
-    
-    }
-    
-    
     
 
-    
     
     
     
@@ -209,8 +193,14 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
                             if let bookName = keyDictionary["book name"] as? String {
                                 self.bookNameArray.append(bookName)
                             }
+                            else {
+                                self.bookNameArray.append("")
+                            }
                             if let bookPrice = keyDictionary["price"] as? String {
                                 self.bookPriceArray.append(bookPrice)
+                            }
+                            else {
+                                self.bookPriceArray.append("")
                             }
                             if let userID = keyDictionary["user"] as? String {
                                 self.userArray.append(userID)
@@ -218,6 +208,10 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
                             if let bookDescription = keyDictionary["description"] as? String {
                                 self.descriptionArray.append(bookDescription)
                             }
+                            else {
+                                self.descriptionArray.append("")
+                            }
+
                             
                         }
                     }
@@ -265,6 +259,7 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
            
             if let image = NSCache.sharedInstance.objectForKey(imageName) as? UIImage {
                 cell.itemImageView.image = image
+                print(imageArray)
                 self.imageArray[indexPath.row] = image
             }
                 
@@ -336,7 +331,7 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
             
             
             else {
-                if bookNameArray.count > 0 {
+                if bookPriceArray.count > indexPath.row {
                     let bookNameToCache = bookNameArray[indexPath.row]
                     self.bookCache[imageName] = bookNameToCache
                     cell.bookName.text = bookNameToCache
@@ -348,7 +343,7 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             
             else {
-                if bookPriceArray.count > 0 {
+                if bookPriceArray.count > indexPath.row {
                     let bookPriceToCache = bookPriceArray[indexPath.row]
                     self.priceCache[imageName] = bookPriceToCache
                     cell.bookPrice.text = bookPriceToCache
@@ -417,6 +412,7 @@ class MarketplaceViewController: UIViewController, UICollectionViewDelegate, UIC
             
             destinationVC.imageNameArray = self.imageNameArray
             
+            destinationVC.imageArray = self.imageArray
         }
         
         if segue.identifier == "showProfile" {

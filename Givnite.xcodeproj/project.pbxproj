@@ -16,6 +16,8 @@
 		7E3585821D31645000CDBB76 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3585811D31645000CDBB76 /* CollectionViewCell.swift */; };
 		7E42DF791D3A8B250074E8BC /* MarketplaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42DF781D3A8B250074E8BC /* MarketplaceViewController.swift */; };
 		7E64DFB01D3AA4920087A700 /* MarketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64DFAF1D3AA4920087A700 /* MarketCollectionViewCell.swift */; };
+		7E83B4F61D41983500D54014 /* LeftToRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B4F51D41983500D54014 /* LeftToRight.swift */; };
+		7E83B4F81D419B2F00D54014 /* LeftToRightUnwind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B4F71D419B2F00D54014 /* LeftToRightUnwind.swift */; };
 		7E96C27A1D2EBEB80038D341 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E96C2771D2EBEB80038D341 /* FBSDKCoreKit.framework */; };
 		7E96C27B1D2EBEB80038D341 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E96C2781D2EBEB80038D341 /* FBSDKLoginKit.framework */; };
 		7E96C27C1D2EBEB80038D341 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E96C2791D2EBEB80038D341 /* FBSDKShareKit.framework */; };
@@ -77,6 +79,8 @@
 		7E3585811D31645000CDBB76 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7E42DF781D3A8B250074E8BC /* MarketplaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketplaceViewController.swift; sourceTree = "<group>"; };
 		7E64DFAF1D3AA4920087A700 /* MarketCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E83B4F51D41983500D54014 /* LeftToRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftToRight.swift; sourceTree = "<group>"; };
+		7E83B4F71D419B2F00D54014 /* LeftToRightUnwind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftToRightUnwind.swift; sourceTree = "<group>"; };
 		7E96C2771D2EBEB80038D341 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		7E96C2781D2EBEB80038D341 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		7E96C2791D2EBEB80038D341 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 			children = (
 				5A43FFBF1D4159B6005A0E18 /* RightToLeft.swift */,
 				5A43FFC11D4159D5005A0E18 /* RightToLeftUnwind.swift */,
+				7E83B4F51D41983500D54014 /* LeftToRight.swift */,
+				7E83B4F71D419B2F00D54014 /* LeftToRightUnwind.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 				7EFF08E31D3EB964000C0E4D /* ViewController.swift in Sources */,
 				C48259731D402F6D00E3497F /* SpringImageView.swift in Sources */,
 				C44D0E331D277FDC00C8EC92 /* LoginViewController.swift in Sources */,
+				7E83B4F61D41983500D54014 /* LeftToRight.swift in Sources */,
 				5A43FFC61D415A38005A0E18 /* SingleChatViewController.swift in Sources */,
 				7E3585801D3163E200CDBB76 /* ItemViewController.swift in Sources */,
 				C482596E1D402F6D00E3497F /* Misc.swift in Sources */,
@@ -419,6 +426,7 @@
 				C45C8F971D29ACC100EBD978 /* ProfileViewController.swift in Sources */,
 				C48259631D402F6D00E3497F /* DesignableImageView.swift in Sources */,
 				C48259711D402F6D00E3497F /* SpringAnimation.swift in Sources */,
+				7E83B4F81D419B2F00D54014 /* LeftToRightUnwind.swift in Sources */,
 				C48259651D402F6D00E3497F /* DesignableTabBarController.swift in Sources */,
 				C48259681D402F6D00E3497F /* DesignableView.swift in Sources */,
 				C48259601D402F6D00E3497F /* AutoTextView.swift in Sources */,

@@ -297,7 +297,10 @@ class MarketItemViewController: UIViewController {
             
             destinationVC.firstTimeUse = self.firstTimeUsed!
             destinationVC.imageNameArray = self.imageNameArray
+            destinationVC.imageArray = self.imageArray
             destinationVC.userArray = self.userArray
+            
+            
         }else if segue.identifier == "shortCutChat"{
             let destinationNavVC = segue.destinationViewController as! UINavigationController
             let destVC = destinationNavVC.viewControllers[0] as! ChatsTableViewController
